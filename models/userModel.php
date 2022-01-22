@@ -1,5 +1,6 @@
 <?php
-require_once "./mainModel.php";
+require_once "mainModel.php";
+
 
 class UserModel extends MainModel
 {
