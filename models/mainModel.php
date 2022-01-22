@@ -9,7 +9,6 @@ class MainModel
   protected static function connect()
   {
     $conn = new PDO(SGBD, USER, PASSWORD);
-    $conn->exec("set character utf8");
     return $conn;
   }
 

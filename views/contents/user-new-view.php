@@ -32,7 +32,7 @@
           <div class="col-12 col-md-4">
             <div class="form-group">
               <label for="usuario_dni" class="bmd-label-floating">DNI</label>
-              <input type="text" pattern="[0-9-]{1,20}" class="form-control" name="usuario_dni_save" id="usuario_dni" maxlength="20" required>
+              <input type="text" pattern="[0-9-]{8,20}" class="form-control" name="usuario_dni_save" id="usuario_dni" maxlength="20" required>
             </div>
           </div>
 
