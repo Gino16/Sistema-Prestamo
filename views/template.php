@@ -17,7 +17,7 @@
   if ($views == "login" || $views == "404") {
     require_once "./views/contents/" . $views . "-view.php";
   } else {
-
+    session_start(['name' => 'SP']);
   ?>
     <!-- Main container -->
     <main class="full-box main-container">

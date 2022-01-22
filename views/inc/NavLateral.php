@@ -6,7 +6,7 @@
           <i class="far fa-times-circle show-nav-lateral"></i>
           <img src="<?=SERVERURL?>views/assets/avatar/Avatar.png" class="img-fluid" alt="Avatar">
           <figcaption class="roboto-medium text-center">
-            Gino Ascencio <br><small class="roboto-condensed-light">Web Developer</small>
+            <?=$_SESSION['nombre'] . ' ' . $_SESSION['apellido']?> <br><small class="roboto-condensed-light"><?=$_SESSION['usuario']?></small>
           </figcaption>
         </figure>
         <div class="full-box nav-lateral-bar"></div>
