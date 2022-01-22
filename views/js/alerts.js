@@ -20,15 +20,15 @@ function sendFormAjax(e) {
 
   let alertText;
 
-  if(type === "save"){
+  if (type === "save") {
     alertText = "Los datos quedarán guardados en el sistema";
-  } else if (type === "delete"){
+  } else if (type === "delete") {
     alertText = "Los datos serán eliminados del sistema";
-  } else if (type === "update"){
+  } else if (type === "update") {
     alertText = "Los datos serán actualizados en el sistema";
-  } else if(type === "search"){
+  } else if (type === "search") {
     alertText = "Los datos serán buscados en el sistema";
-  } else if(type === "loans"){
+  } else if (type === "loans") {
     alertText = "Desea remover los datos seleccionados?";
   } else {
     alertText = "Quieres realizar esta operación?";
@@ -44,11 +44,9 @@ function sendFormAjax(e) {
     confirmButtonText: "Aceptar",
     cancelButtonText: "Cancelar",
   }).then((result) => {
-    if(result.value){
+    if (result.value) {
       fetch(action, config)
-        .then((response) => {
-          return response.json();
-        })
+        .then((response) => response.json())
         .then((data) => {
           return alertsAjax(data);
         });
@@ -68,7 +66,7 @@ function alertsAjax(alert) {
       type: alert.Type,
       confirmButtonText: "Aceptar"
     });
-  } else if (alert.Alert === "reload"){
+  } else if (alert.Alert === "reload") {
     Swal.fire({
       title: alert.Title,
       text: alert.Text,
@@ -79,7 +77,7 @@ function alertsAjax(alert) {
         location.reload();
       }
     });
-  }else if(alert.Alert === "clean"){
+  } else if (alert.Alert === "clean") {
     Swal.fire({
       title: alert.Title,
       text: alert.Text,
@@ -90,7 +88,7 @@ function alertsAjax(alert) {
         document.querySelectorAll(".FormularioAjax").reset();
       }
     });
-  } else if(alert.Alert === "redirect"){
+  } else if (alert.Alert === "redirect") {
     Swal.fire({
       title: alert.Title,
       text: alert.Text,
