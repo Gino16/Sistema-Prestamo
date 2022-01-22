@@ -47,8 +47,8 @@ function sendFormAjax(e) {
     if (result.value) {
       fetch(action, config)
         .then((response) => response.json())
-        .then((data) => {
-          return alertsAjax(data);
+        .then((response) => {
+          return alertsAjax(response);
         });
     }
   });
