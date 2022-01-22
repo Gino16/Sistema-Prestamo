@@ -18,6 +18,13 @@
     require_once "./views/contents/" . $views . "-view.php";
   } else {
     session_start(['name' => 'SP']);
+    require_once "./controllers/loginController.php";
+    $loginController = new LoginController();
+
+    if (!isset($_SESSION['id']) && !isset($_SESSION['token']) || !isset($_SESSION['usuario']) || !isset($_SESSION['privilegio'])) {
+      echo $loginController->forceLogoutController();
+      exit();
+    }
   ?>
     <!-- Main container -->
     <main class="full-box main-container">
@@ -34,7 +41,9 @@
 
       </section>
     </main>
-  <?php }
+  <?php
+    include "./views/inc/Logout.php";
+  }
   include "./views/inc/Script.php"; ?>
 </body>
 

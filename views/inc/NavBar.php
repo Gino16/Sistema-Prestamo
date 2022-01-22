@@ -5,7 +5,7 @@
         <a href="<?= SERVERURL ?>user-update/">
           <i class="fas fa-user-cog"></i>
         </a>
-        <a href="#" class="btn-exit-system">
+        <a href="#" class="btn-exit-system" id="btnSalir">
           <i class="fas fa-power-off"></i>
         </a>
       </nav>

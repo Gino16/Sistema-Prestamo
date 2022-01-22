@@ -119,4 +119,43 @@ class LoginController extends LoginModel
       exit();
     }
   }
+
+  public function forceLogoutController(){
+    session_unset();
+    session_destroy();
+    if( headers_sent()){
+      echo '<script>
+      window.location.href="' . SERVERURL . 'login/";
+      </script>';
+    } else {
+      header("Location:" . SERVERURL . "login/");
+    }
+  }
+
+  public function logoutController()
+  {
+    session_start(["name" => "SP"]);
+    $token = MainModel::decryption($_POST['token']);
+    $usuario = MainModel::decryption($_POST['usuario']);
+
+    if($token == $_SESSION['token'] && $usuario == $_SESSION['usuario']){
+      session_unset();
+      session_destroy();
+      $alert = [
+        "Alert" => "redirect",
+        "Title" => "¡Sesión cerrada!",
+        "Text" => "¡Hasta pronto!",
+        "Icon" => "success",
+        "URL" => SERVERURL . "login/"
+      ];
+    } else {
+      $alert = [
+        "Alert" => "info",
+        "Title" => "¡No se pudo cerrar sesión!",
+        "Text" => "¡Intenta nuevamente!",
+        "Icon" => "error",
+      ];
+    }
+    echo json_encode($alert);
+  }
 }
