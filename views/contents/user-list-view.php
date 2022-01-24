@@ -35,7 +35,6 @@
           <th>#</th>
           <th>DNI</th>
           <th>NOMBRE</th>
-          <th>APELLIDO</th>
           <th>TELÉFONO</th>
           <th>USUARIO</th>
           <th>EMAIL</th>
@@ -44,104 +43,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="text-center">
-          <td>1</td>
-          <td>03045643</td>
-          <td>NOMBRE DE USUARIO</td>
-          <td>APELLIDO DE USUARIO</td>
-          <td>2345456</td>
-          <td>NOMBRE DE USUARIO</td>
-          <td>ADMIN@ADMIN.COM</td>
-          <td>
-            <a href="<?= SERVERURL ?>user-update/" class="btn btn-success">
-              <i class="fas fa-sync-alt"></i>
-            </a>
-          </td>
-          <td>
-            <form action="">
-              <button type="button" class="btn btn-warning">
-                <i class="far fa-trash-alt"></i>
-              </button>
-            </form>
-          </td>
-        </tr>
-        <tr class="text-center">
-          <td>2</td>
-          <td>03045643</td>
-          <td>NOMBRE DE USUARIO</td>
-          <td>APELLIDO DE USUARIO</td>
-          <td>2345456</td>
-          <td>NOMBRE DE USUARIO</td>
-          <td>ADMIN@ADMIN.COM</td>
-          <td>
-            <a href="<?= SERVERURL ?>user-update/" class="btn btn-success">
-              <i class="fas fa-sync-alt"></i>
-            </a>
-          </td>
-          <td>
-            <form action="">
-              <button type="button" class="btn btn-warning">
-                <i class="far fa-trash-alt"></i>
-              </button>
-            </form>
-          </td>
-        </tr>
-        <tr class="text-center">
-          <td>3</td>
-          <td>03045643</td>
-          <td>NOMBRE DE USUARIO</td>
-          <td>APELLIDO DE USUARIO</td>
-          <td>2345456</td>
-          <td>NOMBRE DE USUARIO</td>
-          <td>ADMIN@ADMIN.COM</td>
-          <td>
-            <a href="<?= SERVERURL ?>user-update/" class="btn btn-success">
-              <i class="fas fa-sync-alt"></i>
-            </a>
-          </td>
-          <td>
-            <form action="">
-              <button type="button" class="btn btn-warning">
-                <i class="far fa-trash-alt"></i>
-              </button>
-            </form>
-          </td>
-        </tr>
-        <tr class="text-center">
-          <td>4</td>
-          <td>03045643</td>
-          <td>NOMBRE DE USUARIO</td>
-          <td>APELLIDO DE USUARIO</td>
-          <td>2345456</td>
-          <td>NOMBRE DE USUARIO</td>
-          <td>ADMIN@ADMIN.COM</td>
-          <td>
-            <a href="<?= SERVERURL ?>user-update/" class="btn btn-success">
-              <i class="fas fa-sync-alt"></i>
-            </a>
-          </td>
-          <td>
-            <form action="">
-              <button type="button" class="btn btn-warning">
-                <i class="far fa-trash-alt"></i>
-              </button>
-            </form>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+        <?php
+        require_once "./controllers/userController.php";
+        $userController = new UserController();
+        echo $userController->userPaginatorController($pagina[1], 15, $_SESSION['privilegio'], $_SESSION['id'], $pagina[0], "");
+        ?>
   </div>
-  <nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-center">
-      <li class="page-item disabled">
-        <a class="page-link" href="#" tabindex="-1">Previous</a>
-      </li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#">Next</a>
-      </li>
-    </ul>
-  </nav>
+
 </div>

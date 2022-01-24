@@ -18,6 +18,10 @@
     require_once "./views/contents/" . $views . "-view.php";
   } else {
     session_start(['name' => 'SP']);
+    $pagina = [];
+    if(isset($_GET['views'])){
+      $pagina = explode("/", $_GET['views']);
+    }
     require_once "./controllers/loginController.php";
     $loginController = new LoginController();
 

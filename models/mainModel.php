@@ -114,7 +114,7 @@ class MainModel
   // }
 
   // Funcion generica para generar paginacion de tablas
-  protected static function tablePages($page, $nPages, $url, $buttons)
+  protected static function tablePaginator($page, $nPages, $url, $buttons)
   {
     $table = '<ul class="justify-content-center pagination">';
 
